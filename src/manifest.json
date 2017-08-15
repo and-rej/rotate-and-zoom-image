@@ -1,0 +1,32 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "rotate-and-zoom-image@mikk.cz",
+      "strict_min_version": "52.0"
+    }
+  },
+  "manifest_version": 2,
+  "name": "Rotate and Zoom Image",
+  "description": "Allows to rotate and zoom images directly on any website from context menu.",
+  "version": "1.0",
+  "author": "Michal Stanke",
+  "icons": {
+    "16": "img/ic_burst_mode_black_48px.svg",
+    "48": "img/ic_burst_mode_black_48px.svg",
+    "128": "img/ic_burst_mode_black_48px.svg"
+  },
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": [ "js/background.js" ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
+
