@@ -117,3 +117,16 @@ chrome.contextMenus.create({
     },
 });
 
+function resetImage(tab) {
+    chrome.tabs.sendMessage(tab.id, {type: 'reset-all'});
+}
+
+chrome.contextMenus.create({
+    title: 'Reset all',
+    id: 'reset-all',
+    contexts: ['image'],
+    onclick: function(info, tab) {
+        resetImage(tab);
+    },
+});
+

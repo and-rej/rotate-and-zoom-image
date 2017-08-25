@@ -41,6 +41,9 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
                 setZoom(request.value);
             }
             break;
+        case 'reset-all':
+            clickedImage.style.transform = null;
+            break;
     }
     setTimeout(function(){
         clickedImage.style.transition = null;
