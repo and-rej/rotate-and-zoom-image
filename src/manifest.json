@@ -8,7 +8,7 @@
   "manifest_version": 2,
   "name": "Rotate and Zoom Image",
   "description": "Allows to rotate and zoom images directly on any website from context menu.",
-  "version": "1.0",
+  "version": "1.1",
   "author": "Michal Stanke",
   "icons": {
     "16": "img/ic_burst_mode_black_48px.svg",
