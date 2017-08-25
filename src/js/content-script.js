@@ -1,3 +1,4 @@
+var transitionDurationSeconds = 0.5;
 var clickedImage = null;
 
 document.addEventListener('contextmenu', function(e){
@@ -9,6 +10,7 @@ document.addEventListener('contextmenu', function(e){
 }, true);
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    clickedImage.style.transition = `all ${transitionDurationSeconds}s`;
     switch (request.type) {
         case 'rotate':
             if (request.value == null) {
@@ -25,5 +27,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             }
             break;
     }
+    setTimeout(function(){
+        clickedImage.style.transition = null;
+    }, transitionDurationSeconds * 1000);
 });
 
