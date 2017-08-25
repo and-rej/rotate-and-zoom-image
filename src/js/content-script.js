@@ -9,21 +9,36 @@ document.addEventListener('contextmenu', function(e){
     }
 }, true);
 
+function resetTransformFunction(functionName) {
+    var functionRegExp = new RegExp(functionName + '\\((\\w|\\.)*\\)', 'gi');
+    while ((clickedImage.style.transform.match(functionRegExp) || []).length > 0) {
+        clickedImage.style.transform = clickedImage.style.transform.replace(functionRegExp, '').trim();
+    }
+}
+
+function setRotation(value) {
+    clickedImage.style.transform = clickedImage.style.transform + ` rotate(${value}deg)`;
+}
+
+function setZoom(value) {
+    clickedImage.style.transform = clickedImage.style.transform + ` scale(${value})`;
+}
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     clickedImage.style.transition = `all ${transitionDurationSeconds}s`;
     switch (request.type) {
         case 'rotate':
             if (request.value == null) {
-                clickedImage.style.transform = null;
+                resetTransformFunction('rotate');
             } else {
-                clickedImage.style.transform = `rotate(${request.value}deg)`;
+                setRotation(request.value);
             }
             break;
         case 'zoom':
             if (request.value == null) {
-                clickedImage.style.transform = null;
+                resetTransformFunction('scale');
             } else {
-                clickedImage.style.transform = `scale(${request.value})`;
+                setZoom(request.value);
             }
             break;
     }
