@@ -1,0 +1,53 @@
+{
+  "extensionName": {
+    "message": "Rotate and Zoom Image",
+    "description": "Name of the extension. Personally I suggest to keep it in English for easier search on AMO."
+  },
+
+  "extensionDescription": {
+    "message": "Umožňuje otáčet a zvětšovat obrázky z jejich kontextové nabídky přímo na webových stránkách.",
+    "description": "Description of the extension."
+  },
+
+  "rotateImage": {
+    "message": "Otočit tento obrázek",
+    "description": "Parent context menu entry for image rotation."
+  },
+
+  "rotateImageBy": {
+    "message": "Otočit o $degrees$°",
+    "description": "Context menu entry for rotating the image by given number of degrees.",
+    "placeholders": {
+      "degrees" : {
+        "content" : "$1",
+        "example" : "90"
+      }
+    }
+  },
+
+  "zoomImage": {
+    "message": "Zvětšit tento obrázek",
+    "description": "Parent context menu entry for image zooming."
+  },
+
+  "zoomImageTo": {
+    "message": "Zvětšit na $percent$%",
+    "description": "Context menu entry for zooming the image to given scale.",
+    "placeholders": {
+      "percent" : {
+        "content" : "$1",
+        "example" : "125"
+      }
+    }
+  },
+
+  "resetImageTransformation": {
+    "message": "Obnovit",
+    "description": "Context menu entry to reset either the image rotation or zoom."
+  },
+
+  "resetAllImageTransformations": {
+    "message": "Obnovit vše",
+    "description": "Context menu entry to reset all image transformations."
+  }
+}
