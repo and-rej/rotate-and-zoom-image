@@ -13,7 +13,7 @@ ContextMenu.prototype = {
     addRotateChild: function(degrees) {
         return this._addChild({
             id: `rotate-image-${degrees}`,
-            title: `Rotate ${degrees}°`,
+            title: chrome.i18n.getMessage('rotateImageBy', degrees),
             onclick: function(info, tab) {
                 this._sender.rotateImage(tab, degrees);
             }.bind(this),
@@ -23,7 +23,7 @@ ContextMenu.prototype = {
     addZoomChild: function(percent) {
         return this._addChild({
             id: `zoom-image-${percent}`,
-            title: `Zoom ${percent}%`,
+            title: chrome.i18n.getMessage('zoomImageTo', percent),
             onclick: function(info, tab) {
                 this._sender.zoomImage(tab, percent);
             }.bind(this),
@@ -33,7 +33,7 @@ ContextMenu.prototype = {
     addResetChild: function(transformation) {
         return this._addChild({
             id: `reset-${transformation}`,
-            title: `Reset`,
+            title: chrome.i18n.getMessage('resetImageTransformation'),
             onclick: function(info, tab) {
                 this._sender.resetTransformation(tab, transformation);
             }.bind(this),
