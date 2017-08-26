@@ -1,132 +1,30 @@
-function rotateImage(tab, deg) {
-    chrome.tabs.sendMessage(tab.id, {type: 'rotate', value: deg});
-}
+'use strict';
 
-chrome.contextMenus.create({
+var messageSender = new MessageSender();
+
+var rotateContextMenu = new ContextMenu({
     title: 'Rotate this image',
     id: 'rotate-image',
     contexts: ['image'],
-});
+}, messageSender);
 
-chrome.contextMenus.create({
-    title: 'Rotate 90°',
-    id: 'rotate-image-90',
-    parentId: 'rotate-image',
-    onclick: function(info, tab) {
-        rotateImage(tab, 90);
-    },
-});
+[90, 180, 270].forEach(rotateContextMenu.addRotateChild.bind(rotateContextMenu));
+rotateContextMenu.addResetChild('rotate');
 
-chrome.contextMenus.create({
-    title: 'Rotate 180°',
-    id: 'rotate-image-180',
-    parentId: 'rotate-image',
-    onclick: function(info, tab) {
-        rotateImage(tab, 180);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Rotate 270°',
-    id: 'rotate-image-270',
-    parentId: 'rotate-image',
-    onclick: function(info, tab) {
-        rotateImage(tab, 270);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Reset',
-    id: 'rotate-image-reset',
-    parentId: 'rotate-image',
-    onclick: function(info, tab) {
-        rotateImage(tab, null);
-    },
-});
-
-function zoomImage(tab, level) {
-    chrome.tabs.sendMessage(tab.id, {type: 'zoom', value: level});
-}
-
-chrome.contextMenus.create({
+var zoomContextMenu = new ContextMenu({
     title: 'Zoom this image',
     id: 'zoom-image',
     contexts: ['image'],
-});
+}, messageSender);
 
-chrome.contextMenus.create({
-    title: 'Zoom 125%',
-    id: 'rotate-image-125',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, 1.25);
-    },
-});
+[125, 150, 200, 300, 400, 500].forEach(zoomContextMenu.addZoomChild.bind(zoomContextMenu));
+zoomContextMenu.addResetChild('zoom');
 
-chrome.contextMenus.create({
-    title: 'Zoom 150%',
-    id: 'zoom-image-150',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, 1.5);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Zoom 200°',
-    id: 'zoom-image-200',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, 2);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Zoom 300°',
-    id: 'zoom-image-300',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, 3);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Zoom 400°',
-    id: 'zoom-image-400',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, 4);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Zoom 500°',
-    id: 'zoom-image-500',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, 5);
-    },
-});
-
-chrome.contextMenus.create({
-    title: 'Reset',
-    id: 'zoom-image-reset',
-    parentId: 'zoom-image',
-    onclick: function(info, tab) {
-        zoomImage(tab, null);
-    },
-});
-
-function resetImage(tab) {
-    chrome.tabs.sendMessage(tab.id, {type: 'reset-all'});
-}
-
-chrome.contextMenus.create({
+var resetAllContextMenu = new ContextMenu({
     title: 'Reset all',
     id: 'reset-all',
     contexts: ['image'],
     onclick: function(info, tab) {
-        resetImage(tab);
+        messageSender.resetAllTransformations(tab);
     },
 });
-
