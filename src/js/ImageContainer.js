@@ -37,12 +37,12 @@ ImageContainer.prototype = {
     },
 
     resetTransformation: function(transformation) {
-        this._beforeTransformation();
         var transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
-        while ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
+        if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
+            this._beforeTransformation();
             this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim();
+            this._afterTransformation();
         }
-        this._afterTransformation();
     },
 
     resetAllTransformations: function() {
