@@ -9,6 +9,21 @@
     "description": "Description of the extension."
   },
 
+  "enableTransformationAnimation": {
+    "message": "Enable transformation animations",
+    "description": "Checkbox in options to enable animations."
+  },
+
+  "transformationAnimationDurationLabel": {
+    "message": "Transformation animation duration",
+    "description": "Label for animation duration option."
+  },
+
+  "transformationAnimationDurationUnitLabelSeconds": {
+    "message": "s",
+    "description": "Units of animation duration option (seconds)."
+  },
+
   "rotateImage": {
     "message": "Rotate this image",
     "description": "Parent context menu entry for image rotation."

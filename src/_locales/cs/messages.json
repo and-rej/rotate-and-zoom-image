@@ -9,6 +9,21 @@
     "description": "Description of the extension."
   },
 
+  "enableTransformationAnimation": {
+    "message": "Povolit animace transformací obrázků",
+    "description": "Checkbox in options to enable animations."
+  },
+
+  "transformationAnimationDurationLabel": {
+    "message": "Doba trvání animace",
+    "description": "Label for animation duration option."
+  },
+
+  "transformationAnimationDurationUnitLabelSeconds": {
+    "message": "s",
+    "description": "Units of animation duration option (seconds)."
+  },
+
   "rotateImage": {
     "message": "Otočit tento obrázek",
     "description": "Parent context menu entry for image rotation."

@@ -7,11 +7,17 @@
 <body>
   <table>
     <tr>
-      <td colspan="2"><input id="transformation_animation_enabled" type="checkbox" data-l10n-id="enableTransformationAnimation">Enable transformation animations</input></td>
+      <td colspan="2">
+        <input id="transformation_animation_enabled" type="checkbox">
+        <label for="transformation_animation_enabled" data-l10n-id="enableTransformationAnimation"></label>
+      </td>
     </tr>
     <tr>
-      <td><label for="transformation_animation_duration" data-l10n-id="transformationAnimationDurationLabel">Transformation animation duration</input></td>
-      <td><input id="transformation_animation_duration" type="number" step="0.1" min="0" data-l10n-id="transformationAnimationDurationUnitLabelSeconds">s</input></td>
+      <td><label for="transformation_animation_duration" data-l10n-id="transformationAnimationDurationLabel"></td>
+      <td>
+        <input id="transformation_animation_duration" type="number" step="0.1" min="0">
+        <label for="transformation_animation_duration" data-l10n-id="transformationAnimationDurationUnitLabelSeconds"></label>
+      </td>
     </tr>
   </table>
   <script src="../js/Options.js"></script>
