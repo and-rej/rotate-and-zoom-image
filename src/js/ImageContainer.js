@@ -1,6 +1,6 @@
-function ImageContainer(transitionDurationSeconds) {
+function ImageContainer(options) {
     this._image = null;
-    this._transitionSeconds = transitionDurationSeconds;
+    this._options = options;
 }
 
 ImageContainer.prototype = {
@@ -8,46 +8,56 @@ ImageContainer.prototype = {
         this._image = clickedImage;
     },
 
-    _setImageTransition: function() {
-        this._image.style.transition = `all ${this._transitionSeconds}s`;
+    _setImageTransition: function(transformationCallback) {
+        var enabledOptionId = 'options.transformation_animation_enabled';
+        var durationOptionId = 'options.transformation_animation_duration';
+        this._options.get([enabledOptionId, durationOptionId], function(items) {
+            if (items[enabledOptionId]) {
+                this._image.style.transition = `all ${items[durationOptionId]}s`;
+            }
+            transformationCallback();
+            if (items[enabledOptionId]) {
+                this._afterTransformation(items[durationOptionId]);
+            }
+        }.bind(this));
     },
 
     _resetImageTransition: function() {
         this._image.style.transition = null;
     },
 
-    _beforeTransformation: function() {
-        this._setImageTransition();
+    _doTransformation: function(transformationCallback) {
+        this._setImageTransition(transformationCallback);
     },
 
-    _afterTransformation: function() {
-        setTimeout(this._resetImageTransition.bind(this), this._transitionSeconds * 1000);
+    _afterTransformation: function(duration) {
+        setTimeout(this._resetImageTransition.bind(this), duration * 1000);
     },
 
     rotateImage: function(degrees) {
-        this._beforeTransformation();
-        this._image.style.transform = this._image.style.transform + ` rotate(${degrees}deg)`;
-        this._afterTransformation();
+        this._doTransformation(function() {
+            this._image.style.transform = this._image.style.transform + ` rotate(${degrees}deg)`;
+        }.bind(this));
     },
 
     zoomImage: function(percent) {
-        this._beforeTransformation();
-        this._image.style.transform = this._image.style.transform + ` scale(${percent/100})`;
-        this._afterTransformation();
+        this._doTransformation(function() {
+            this._image.style.transform = this._image.style.transform + ` scale(${percent/100})`;
+        }.bind(this));
     },
 
     resetTransformation: function(transformation) {
         var transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
         if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
-            this._beforeTransformation();
-            this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim();
-            this._afterTransformation();
+            this._doTransformation(function() {
+                this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim();
+            }.bind(this));
         }
     },
 
     resetAllTransformations: function() {
-        this._beforeTransformation();
-        this._image.style.transform = null;
-        this._afterTransformation();
+        this._doTransformation(function() {
+            this._image.style.transform = null;
+        }.bind(this));
     },
 }

@@ -1,6 +1,7 @@
 'use strict';
 
-var imageContainer = new ImageContainer(0.5);
+var options = new Options();
+var imageContainer = new ImageContainer(options);
 
 document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName.toLowerCase() == 'img') {

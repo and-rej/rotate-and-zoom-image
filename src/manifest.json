@@ -17,8 +17,13 @@
   },
   "default_locale": "en",
   "permissions": [
-    "contextMenus"
+    "contextMenus",
+    "storage"
   ],
+  "options_ui": {
+    "page": "html/options-ui.html",
+    "browser_style": true
+  },
   "background": {
     "scripts": [
         "js/MessageSender.js",
@@ -30,6 +35,7 @@
     {
       "matches": ["<all_urls>"],
       "js": [
+        "js/Options.js",
         "js/ImageContainer.js",
         "js/MessageListener.js",
         "js/content-script.js"
