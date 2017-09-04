@@ -8,7 +8,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.3",
+  "version": "1.3.1",
   "author": "Michal Stanke",
   "icons": {
     "16": "img/ic_burst_mode_black_48px.svg",
