@@ -7,7 +7,12 @@ document.addEventListener('contextmenu', function(e) {
     if (e.target.tagName.toLowerCase() == 'img') {
         imageContainer.setImage(e.target);
     } else {
-        imageContainer.setImage(null);
+        var img = e.target.querySelector('img');
+        if (img) {
+            imageContainer.setImage(img);
+        } else {
+            imageContainer.setImage(null);
+        }
     }
 }, true);
 
