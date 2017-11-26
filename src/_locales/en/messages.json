@@ -1,68 +1,58 @@
 {
-  "extensionName": {
-    "message": "Rotate and Zoom Image",
-    "description": "Name of the extension. Personally I suggest to keep it in English for easier search on AMO."
-  },
-
-  "extensionDescription": {
-    "message": "Allows to rotate and zoom images directly on any website from context menu.",
-    "description": "Description of the extension."
-  },
-
-  "enableTransformationAnimation": {
-    "message": "Enable transformation animations",
-    "description": "Checkbox in options to enable animations."
-  },
-
-  "transformationAnimationDurationLabel": {
-    "message": "Transformation animation duration",
-    "description": "Label for animation duration option."
-  },
-
-  "transformationAnimationDurationUnitLabelSeconds": {
-    "message": "s",
-    "description": "Units of animation duration option (seconds)."
-  },
-
-  "rotateImage": {
-    "message": "Rotate this image",
-    "description": "Parent context menu entry for image rotation."
-  },
-
-  "rotateImageBy": {
-    "message": "Rotate $degrees$°",
-    "description": "Context menu entry for rotating the image by given number of degrees.",
-    "placeholders": {
-      "degrees" : {
-        "content" : "$1",
-        "example" : "90"
-      }
+    "extensionName": {
+        "message": "Rotate and Zoom Image",
+        "description": "Name of the extension. Personally I suggest to keep it in English for easier search on AMO."
+    },
+    "extensionDescription": {
+        "message": "Allows to rotate and zoom images directly on any website from context menu.",
+        "description": "Description of the extension."
+    },
+    "enableTransformationAnimation": {
+        "message": "Enable transformation animations",
+        "description": "Checkbox in options to enable animations."
+    },
+    "transformationAnimationDurationLabel": {
+        "message": "Transformation animation duration",
+        "description": "Label for animation duration option."
+    },
+    "transformationAnimationDurationUnitLabelSeconds": {
+        "message": "s",
+        "description": "Units of animation duration option (seconds)."
+    },
+    "rotateImage": {
+        "message": "Rotate this image",
+        "description": "Parent context menu entry for image rotation."
+    },
+    "rotateImageBy": {
+        "message": "Rotate $degrees$°",
+        "description": "Context menu entry for rotating the image by given number of degrees.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "90"
+            }
+        }
+    },
+    "zoomImage": {
+        "message": "Zoom this image",
+        "description": "Parent context menu entry for image zooming."
+    },
+    "zoomImageTo": {
+        "message": "Zoom $percent$%",
+        "description": "Context menu entry for zooming the image to given scale.",
+        "placeholders": {
+            "percent": {
+                "content": "$1",
+                "example": "125"
+            }
+        }
+    },
+    "resetImageTransformation": {
+        "message": "Reset",
+        "description": "Context menu entry to reset either the image rotation or zoom."
+    },
+    "resetAllImageTransformations": {
+        "message": "Reset all",
+        "description": "Context menu entry to reset all image transformations."
     }
-  },
-
-  "zoomImage": {
-    "message": "Zoom this image",
-    "description": "Parent context menu entry for image zooming."
-  },
-
-  "zoomImageTo": {
-    "message": "Zoom $percent$%",
-    "description": "Context menu entry for zooming the image to given scale.",
-    "placeholders": {
-      "percent" : {
-        "content" : "$1",
-        "example" : "125"
-      }
-    }
-  },
-
-  "resetImageTransformation": {
-    "message": "Reset",
-    "description": "Context menu entry to reset either the image rotation or zoom."
-  },
-
-  "resetAllImageTransformations": {
-    "message": "Reset all",
-    "description": "Context menu entry to reset all image transformations."
-  }
 }
