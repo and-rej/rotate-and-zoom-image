@@ -23,16 +23,6 @@
         "message": "Otočit tento obrázek",
         "description": "Parent context menu entry for image rotation."
     },
-    "rotateImageBy": {
-        "message": "Otočit o $degrees$°",
-        "description": "Context menu entry for rotating the image by given number of degrees.",
-        "placeholders": {
-            "degrees": {
-                "content": "$1",
-                "example": "90"
-            }
-        }
-    },
     "zoomImage": {
         "message": "Zvětšit tento obrázek",
         "description": "Parent context menu entry for image zooming."
@@ -54,5 +44,57 @@
     "resetAllImageTransformations": {
         "message": "Obnovit vše",
         "description": "Context menu entry to reset all image transformations."
+    },
+    "downscaleImageTo": {
+        "message": "Zmenšit na $percent$%",
+        "description": "Context menu entry for un-zooming the image to given scale less than 100%.",
+        "placeholders": {
+            "percent": {
+                "content": "$1",
+                "example": "50"
+            }
+        }
+    },
+    "rotateImageLeftBy": {
+        "message": "Otočit o $degrees$° doleva",
+        "description": "Context menu entry for rotating the image by given number of degrees to the left.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "90"
+            }
+        }
+    },
+    "rotateImageRightBy": {
+        "message": "Otočit o $degrees$° doprava",
+        "description": "Context menu entry for rotating the image by given number of degrees to the right.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "90"
+            }
+        }
+    },
+    "openOptions": {
+        "message": "Otevřít možnosti $addon$",
+        "description": "Context menu entry to open Rotate and Image Zoom options.",
+        "placeholders": {
+            "addon": {
+                "content": "$1",
+                "example": "Rotate and Zoom Image"
+            }
+        }
+    },
+    "flipImage": {
+        "message": "Převrátit tento obrázek",
+        "description": "Parent context menu entry for image flipping."
+    },
+    "flipImageHorizontally": {
+        "message": "Převrátit horizontálně (zleva doprava)",
+        "description": "Context menu for flipping the image horizontally (left to right)."
+    },
+    "flipImageVertically": {
+        "message": "Převrátit vertikálně (hlavou vzhůru)",
+        "description": "Context menu for flipping the image vertically (upside down)."
     }
 }
