@@ -15,10 +15,10 @@ const zoomContextMenu = new ContextMenu({
     contexts: ['image', 'link'],
 }, messageSender);
 
-[125, 150, 200, 300, 400, 500].forEach((percent) => zoomContextMenu.addZoomChild(percent));
+[25, 50, 75, 125, 150, 200, 300, 400, 500].forEach((percent) => zoomContextMenu.addZoomChild(percent));
 zoomContextMenu.addResetChild('zoom');
 
-const resetAllContextMenu = new ContextMenu({
+new ContextMenu({
     title: browser.i18n.getMessage('resetAllImageTransformations'),
     contexts: ['image', 'link'],
     onclick: function(info, tab) {

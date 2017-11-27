@@ -18,10 +18,17 @@ ContextMenu.prototype = {
     },
 
     addZoomChild: function(percent) {
-        return this._addChild({
-            title: browser.i18n.getMessage('zoomImageTo', percent),
-            onclick: (info, tab) => this._sender.zoomImage(tab, percent),
-        });
+        if (percent > 100) {
+            return this._addChild({
+                title: browser.i18n.getMessage('zoomImageTo', percent),
+                onclick: (info, tab) => this._sender.zoomImage(tab, percent),
+            });
+        } else {
+            return this._addChild({
+                title: browser.i18n.getMessage('downscaleImageTo', percent),
+                onclick: (info, tab) => this._sender.zoomImage(tab, percent),
+            });
+        }
     },
 
     addResetChild: function(transformation) {

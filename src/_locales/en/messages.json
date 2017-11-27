@@ -37,9 +37,19 @@
         "message": "Zoom this image",
         "description": "Parent context menu entry for image zooming."
     },
+    "downscaleImageTo": {
+        "message": "Downscale to $percent$%",
+        "description": "Context menu entry for un-zooming the image to given scale less than 100%.",
+        "placeholders": {
+            "percent": {
+                "content": "$1",
+                "example": "50"
+            }
+        }
+    },
     "zoomImageTo": {
         "message": "Zoom $percent$%",
-        "description": "Context menu entry for zooming the image to given scale.",
+        "description": "Context menu entry for zooming the image to given scale more than 100%.",
         "placeholders": {
             "percent": {
                 "content": "$1",
