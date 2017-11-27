@@ -3,7 +3,8 @@ function MessageListener(imageContainer) {
 }
 
 MessageListener.prototype = {
-    receive: function(request, sender, sendResponse) {
+    receive: function(request) {
+        console.log(request);
         switch (request.type) {
             case 'rotate':
                 if (request.value === null) {
@@ -17,6 +18,13 @@ MessageListener.prototype = {
                     this._container.resetTransformation('scale');
                 } else {
                     this._container.zoomImage(request.value);
+                }
+                break;
+            case 'flip':
+                if (request.value === null) {
+                    this._container.resetTransformation('scale');
+                } else {
+                    this._container.flipImage(request.value.x || 1, request.value.y || 1);
                 }
                 break;
             case 'reset-all':

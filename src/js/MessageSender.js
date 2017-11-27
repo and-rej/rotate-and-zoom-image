@@ -14,6 +14,17 @@ MessageSender.prototype = {
         this._sendMessage(tab.id, 'zoom', percent);
     },
 
+    flipImage: function(tab, how) {
+        switch (how) {
+            case 'horizontally':
+                this._sendMessage(tab.id, 'flip', {x: -1});
+                break;
+            case 'vertically':
+                this._sendMessage(tab.id, 'flip', {y: -1});
+                break;
+        }
+    },
+
     resetTransformation: function(tab, transformation) {
         this._sendMessage(tab.id, transformation, null);
     },

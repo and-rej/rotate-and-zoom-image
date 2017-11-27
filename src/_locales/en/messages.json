@@ -67,6 +67,18 @@
             }
         }
     },
+    "flipImage": {
+        "message": "Flip this image",
+        "description": "Parent context menu entry for image flipping."
+    },
+    "flipImageHorizontally": {
+        "message": "Flip horizontally",
+        "description": "Context menu for flipping the image horizontally (left to right)."
+    },
+    "flipImageVertically": {
+        "message": "Flip vertically",
+        "description": "Context menu for flipping the image vertically (upside down)."
+    },
     "resetImageTransformation": {
         "message": "Reset",
         "description": "Context menu entry to reset either the image rotation or zoom."

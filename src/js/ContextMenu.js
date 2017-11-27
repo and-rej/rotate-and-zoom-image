@@ -38,6 +38,23 @@ ContextMenu.prototype = {
         }
     },
 
+    addFlipChild: function(how) {
+        switch (how) {
+            case 'horizontally':
+                return this._addChild({
+                    title: browser.i18n.getMessage('flipImageHorizontally'),
+                    onclick: (info, tab) => this._sender.flipImage(tab, how),
+                });
+                break;
+            case 'vertically':
+                return this._addChild({
+                    title: browser.i18n.getMessage('flipImageVertically'),
+                    onclick: (info, tab) => this._sender.flipImage(tab, how),
+                });
+                break;
+        }
+    },
+
     addResetChild: function(transformation) {
         return this._addChild({
             title: browser.i18n.getMessage('resetImageTransformation'),

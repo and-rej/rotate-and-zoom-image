@@ -46,6 +46,12 @@ ImageContainer.prototype = {
         );
     },
 
+    flipImage: function(sx, sy) {
+        this._doTransformation(() =>
+            this._image.style.transform = this._image.style.transform + ` scale(${sx}, ${sy})`
+        );
+    },
+
     resetTransformation: function(transformation) {
         const transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
         if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
