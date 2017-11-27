@@ -18,6 +18,6 @@ document.addEventListener('contextmenu', function(e) {
 
 const messageListener = new MessageListener(imageContainer);
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) =>
+browser.runtime.onMessage.addListener((request, sender, sendResponse) =>
     messageListener.receive(request, sender, sendResponse)
 );

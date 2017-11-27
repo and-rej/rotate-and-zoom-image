@@ -1,5 +1,5 @@
 function ContextMenu(createProperties, messageSender) {
-    this._id = chrome.contextMenus.create(createProperties);
+    this._id = browser.contextMenus.create(createProperties);
     this._sender = messageSender;
 }
 
@@ -12,21 +12,21 @@ ContextMenu.prototype = {
 
     addRotateChild: function(degrees) {
         return this._addChild({
-            title: chrome.i18n.getMessage('rotateImageBy', degrees),
+            title: browser.i18n.getMessage('rotateImageBy', degrees),
             onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
         });
     },
 
     addZoomChild: function(percent) {
         return this._addChild({
-            title: chrome.i18n.getMessage('zoomImageTo', percent),
+            title: browser.i18n.getMessage('zoomImageTo', percent),
             onclick: (info, tab) => this._sender.zoomImage(tab, percent),
         });
     },
 
     addResetChild: function(transformation) {
         return this._addChild({
-            title: chrome.i18n.getMessage('resetImageTransformation'),
+            title: browser.i18n.getMessage('resetImageTransformation'),
             onclick: (info, tab) => this._sender.resetTransformation(tab, transformation),
         });
     },

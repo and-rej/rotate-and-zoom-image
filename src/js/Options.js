@@ -27,7 +27,7 @@ Options.prototype = {
     _saveOption: function(id, value) {
         const option = { };
         option[id] = value;
-        chrome.storage.local.set(option);
+        browser.storage.local.set(option);
     },
 
     saveInputOnChange: function(e) {
@@ -64,7 +64,7 @@ Options.prototype = {
     },
 
     loadAllFromLocalStorage: function() {
-        chrome.storage.local.get((items) => {
+        browser.storage.local.get().then((items) => {
             Object.keys(items).map((key, index) => {
                 if (key.startsWith(this._prefix)) {
                     const value = items[key];
@@ -77,7 +77,7 @@ Options.prototype = {
     },
 
     get: function(optionIds, callback) {
-        chrome.storage.local.get(optionIds, (items) => {
+        browser.storage.local.get(optionIds).then((items) => {
             for (optionId of optionIds) {
                 if (items[optionId] === undefined) {
                     items[optionId] = this._getDefaultFor(optionId);

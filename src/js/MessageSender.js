@@ -3,7 +3,7 @@ function MessageSender() {
 
 MessageSender.prototype = {
     _sendMessage: function(tabId, t, v) {
-        chrome.tabs.sendMessage(tabId, {type: t, value: v});
+        browser.tabs.sendMessage(tabId, {type: t, value: v});
     },
 
     rotateImage: function(tab, degrees) {

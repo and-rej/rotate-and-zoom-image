@@ -3,7 +3,7 @@
 const messageSender = new MessageSender();
 
 const rotateContextMenu = new ContextMenu({
-    title: chrome.i18n.getMessage('rotateImage'),
+    title: browser.i18n.getMessage('rotateImage'),
     contexts: ['image', 'link'],
 }, messageSender);
 
@@ -11,7 +11,7 @@ const rotateContextMenu = new ContextMenu({
 rotateContextMenu.addResetChild('rotate');
 
 const zoomContextMenu = new ContextMenu({
-    title: chrome.i18n.getMessage('zoomImage'),
+    title: browser.i18n.getMessage('zoomImage'),
     contexts: ['image', 'link'],
 }, messageSender);
 
@@ -19,7 +19,7 @@ const zoomContextMenu = new ContextMenu({
 zoomContextMenu.addResetChild('zoom');
 
 const resetAllContextMenu = new ContextMenu({
-    title: chrome.i18n.getMessage('resetAllImageTransformations'),
+    title: browser.i18n.getMessage('resetAllImageTransformations'),
     contexts: ['image', 'link'],
     onclick: function(info, tab) {
         messageSender.resetAllTransformations(tab);
