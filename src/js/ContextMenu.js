@@ -5,7 +5,7 @@ function ContextMenu(createProperties, messageSender) {
 
 ContextMenu.prototype = {
     _addChild: function(createProperties) {
-        var childProperties = createProperties;
+        const childProperties = createProperties;
         childProperties.parentId = this._id;
         return new ContextMenu(childProperties);
     },
@@ -36,4 +36,4 @@ ContextMenu.prototype = {
             }.bind(this),
         });
     },
-}
+};

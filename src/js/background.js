@@ -1,8 +1,8 @@
 'use strict';
 
-var messageSender = new MessageSender();
+const messageSender = new MessageSender();
 
-var rotateContextMenu = new ContextMenu({
+const rotateContextMenu = new ContextMenu({
     title: chrome.i18n.getMessage('rotateImage'),
     contexts: ['image', 'link'],
 }, messageSender);
@@ -10,7 +10,7 @@ var rotateContextMenu = new ContextMenu({
 [90, 180, 270].forEach(rotateContextMenu.addRotateChild.bind(rotateContextMenu));
 rotateContextMenu.addResetChild('rotate');
 
-var zoomContextMenu = new ContextMenu({
+const zoomContextMenu = new ContextMenu({
     title: chrome.i18n.getMessage('zoomImage'),
     contexts: ['image', 'link'],
 }, messageSender);
@@ -18,7 +18,7 @@ var zoomContextMenu = new ContextMenu({
 [125, 150, 200, 300, 400, 500].forEach(zoomContextMenu.addZoomChild.bind(zoomContextMenu));
 zoomContextMenu.addResetChild('zoom');
 
-var resetAllContextMenu = new ContextMenu({
+const resetAllContextMenu = new ContextMenu({
     title: chrome.i18n.getMessage('resetAllImageTransformations'),
     contexts: ['image', 'link'],
     onclick: function(info, tab) {

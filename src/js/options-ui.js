@@ -1,7 +1,7 @@
-'use-strict';
+'use strict';
 
-var options = new Options();
-var inputs = document.querySelectorAll('input');
+const options = new Options();
+const inputs = document.querySelectorAll('input');
 
 for (element of document.querySelectorAll('[data-l10n-id]')) {
     element.textContent = chrome.i18n.getMessage(element.dataset.l10nId);

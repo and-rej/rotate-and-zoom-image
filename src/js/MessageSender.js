@@ -21,4 +21,4 @@ MessageSender.prototype = {
     resetAllTransformations: function(tab) {
         this._sendMessage(tab.id, 'reset-all');
     },
-}
+};

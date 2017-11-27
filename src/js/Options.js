@@ -17,7 +17,7 @@ Options.prototype = {
     },
 
     _getValue: function(input) {
-        if (input.type != 'checkbox') {
+        if (input.type !== 'checkbox') {
             return input.value;
         } else {
             return input.checked;
@@ -25,16 +25,16 @@ Options.prototype = {
     },
 
     _saveOption: function(id, value) {
-        var option = { };
+        const option = { };
         option[id] = value;
         chrome.storage.local.set(option);
     },
 
     saveInputOnChange: function(e) {
-        var input = e.target;
+        const input = e.target;
         if (this._isValid(input)) {
-            var optionId = this._getOptionId(input);
-            var value = this._getValue(input);
+            const optionId = this._getOptionId(input);
+            const value = this._getValue(input);
             this._saveOption(optionId, value);
         }
     },
@@ -51,7 +51,7 @@ Options.prototype = {
     },
 
     _setValue: function(input, value) {
-        if (input.type != 'checkbox') {
+        if (input.type !== 'checkbox') {
             input.value = value;
         } else {
             input.checked = value;
@@ -59,7 +59,7 @@ Options.prototype = {
     },
 
     loadDefault: function(input) {
-        var defaultValue = this._getDefaultFor(this._getOptionId(input));
+        const defaultValue = this._getDefaultFor(this._getOptionId(input));
         this._setValue(input, defaultValue);
     },
 
@@ -67,9 +67,9 @@ Options.prototype = {
         chrome.storage.local.get(function (items) {
             Object.keys(items).map(function(key, index) {
                 if (key.startsWith(this._prefix)) {
-                    var value = items[key];
-                    var inputId = this._getInputId(key);
-                    var input = document.getElementById(inputId);
+                    const value = items[key];
+                    const inputId = this._getInputId(key);
+                    const input = document.getElementById(inputId);
                     this._setValue(input, value);
                 }
             }.bind(this));
@@ -86,4 +86,4 @@ Options.prototype = {
             callback(items);
         }.bind(this));
     },
-}
+};

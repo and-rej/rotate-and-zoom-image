@@ -9,8 +9,8 @@ ImageContainer.prototype = {
     },
 
     _setImageTransition: function(transformationCallback) {
-        var enabledOptionId = 'options.transformation_animation_enabled';
-        var durationOptionId = 'options.transformation_animation_duration';
+        const enabledOptionId = 'options.transformation_animation_enabled';
+        const durationOptionId = 'options.transformation_animation_duration';
         this._options.get([enabledOptionId, durationOptionId], function(items) {
             if (items[enabledOptionId]) {
                 this._image.style.transition = `all ${items[durationOptionId]}s`;
@@ -47,7 +47,7 @@ ImageContainer.prototype = {
     },
 
     resetTransformation: function(transformation) {
-        var transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
+        const transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
         if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
             this._doTransformation(function() {
                 this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim();
@@ -60,4 +60,4 @@ ImageContainer.prototype = {
             this._image.style.transform = null;
         }.bind(this));
     },
-}
+};

@@ -1,13 +1,13 @@
 'use strict';
 
-var options = new Options();
-var imageContainer = new ImageContainer(options);
+const options = new Options();
+const imageContainer = new ImageContainer(options);
 
 document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName.toLowerCase() == 'img') {
+    if (e.target.tagName.toLowerCase() === 'img') {
         imageContainer.setImage(e.target);
     } else {
-        var img = e.target.querySelector('img');
+        const img = e.target.querySelector('img');
         if (img) {
             imageContainer.setImage(img);
         } else {
@@ -16,6 +16,6 @@ document.addEventListener('contextmenu', function(e) {
     }
 }, true);
 
-var messageListener = new MessageListener(imageContainer);
+const messageListener = new MessageListener(imageContainer);
 
 chrome.runtime.onMessage.addListener(messageListener.receive.bind(messageListener));
