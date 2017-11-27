@@ -74,5 +74,15 @@
     "resetAllImageTransformations": {
         "message": "Reset all",
         "description": "Context menu entry to reset all image transformations."
+    },
+    "openOptions": {
+        "message": "Open $addon$ options",
+        "description": "Context menu entry to open Rotate and Image Zoom options.",
+        "placeholders": {
+            "addon": {
+                "content": "$1",
+                "example": "Rotate and Zoom Image"
+            }
+        }
     }
 }

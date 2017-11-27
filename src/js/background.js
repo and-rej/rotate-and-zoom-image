@@ -25,3 +25,9 @@ new ContextMenu({
         messageSender.resetAllTransformations(tab);
     },
 });
+
+new ContextMenu({
+    title: browser.i18n.getMessage('openOptions', browser.i18n.getMessage('extensionName')),
+    contexts: ['image', 'link'],
+    onclick: () => browser.runtime.openOptionsPage(),
+});
