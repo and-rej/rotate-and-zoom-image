@@ -29,7 +29,7 @@ const messageSender = new MessageSender();
     }, messageSender);
 
     ['horizontally', 'vertically'].forEach((how) => flipContextMenu.addFlipChild(how));
-    flipContextMenu.addResetChild('scale');
+    flipContextMenu.addResetChild('flip');
 }
 
 new ContextMenu({

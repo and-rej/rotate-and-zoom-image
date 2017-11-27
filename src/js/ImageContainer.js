@@ -53,7 +53,7 @@ ImageContainer.prototype = {
     },
 
     resetTransformation: function(transformation) {
-        const transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
+        const transformationRegExp = new RegExp(transformation + '\\((-|\\w|\\.|,|\\s)*\\)', 'gi');
         if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
             this._doTransformation(() =>
                 this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim()
