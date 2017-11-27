@@ -65,7 +65,7 @@ Options.prototype = {
 
     loadAllFromLocalStorage: function() {
         browser.storage.local.get().then((items) => {
-            Object.keys(items).map((key, index) => {
+            Object.keys(items).map((key) => {
                 if (key.startsWith(this._prefix)) {
                     const value = items[key];
                     const inputId = this._getInputId(key);
@@ -76,14 +76,14 @@ Options.prototype = {
         });
     },
 
-    get: function(optionIds, callback) {
-        browser.storage.local.get(optionIds).then((items) => {
+    get: async function(optionIds) {
+        return await browser.storage.local.get(optionIds).then((items) => {
             for (optionId of optionIds) {
                 if (items[optionId] === undefined) {
                     items[optionId] = this._getDefaultFor(optionId);
                 }
             }
-            callback(items);
+            return items;
         });
     },
 };
