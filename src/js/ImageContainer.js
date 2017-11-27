@@ -11,7 +11,7 @@ ImageContainer.prototype = {
     _setImageTransition: function(transformationCallback) {
         const enabledOptionId = 'options.transformation_animation_enabled';
         const durationOptionId = 'options.transformation_animation_duration';
-        this._options.get([enabledOptionId, durationOptionId], function(items) {
+        this._options.get([enabledOptionId, durationOptionId], (items) => {
             if (items[enabledOptionId]) {
                 this._image.style.transition = `all ${items[durationOptionId]}s`;
             }
@@ -19,7 +19,7 @@ ImageContainer.prototype = {
             if (items[enabledOptionId]) {
                 this._afterTransformation(items[durationOptionId]);
             }
-        }.bind(this));
+        });
     },
 
     _resetImageTransition: function() {
@@ -31,33 +31,31 @@ ImageContainer.prototype = {
     },
 
     _afterTransformation: function(duration) {
-        setTimeout(this._resetImageTransition.bind(this), duration * 1000);
+        setTimeout(() => this._resetImageTransition(), duration * 1000);
     },
 
     rotateImage: function(degrees) {
-        this._doTransformation(function() {
-            this._image.style.transform = this._image.style.transform + ` rotate(${degrees}deg)`;
-        }.bind(this));
+        this._doTransformation(() =>
+            this._image.style.transform = this._image.style.transform + ` rotate(${degrees}deg)`
+        );
     },
 
     zoomImage: function(percent) {
-        this._doTransformation(function() {
-            this._image.style.transform = this._image.style.transform + ` scale(${percent/100})`;
-        }.bind(this));
+        this._doTransformation(() =>
+            this._image.style.transform = this._image.style.transform + ` scale(${percent/100})`
+        );
     },
 
     resetTransformation: function(transformation) {
         const transformationRegExp = new RegExp(transformation + '\\((\\w|\\.)*\\)', 'gi');
         if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
-            this._doTransformation(function() {
-                this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim();
-            }.bind(this));
+            this._doTransformation(() =>
+                this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim()
+            );
         }
     },
 
     resetAllTransformations: function() {
-        this._doTransformation(function() {
-            this._image.style.transform = null;
-        }.bind(this));
+        this._doTransformation(() => this._image.style.transform = null);
     },
 };

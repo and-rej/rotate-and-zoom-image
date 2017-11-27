@@ -13,27 +13,21 @@ ContextMenu.prototype = {
     addRotateChild: function(degrees) {
         return this._addChild({
             title: chrome.i18n.getMessage('rotateImageBy', degrees),
-            onclick: function(info, tab) {
-                this._sender.rotateImage(tab, degrees);
-            }.bind(this),
+            onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
         });
     },
 
     addZoomChild: function(percent) {
         return this._addChild({
             title: chrome.i18n.getMessage('zoomImageTo', percent),
-            onclick: function(info, tab) {
-                this._sender.zoomImage(tab, percent);
-            }.bind(this),
+            onclick: (info, tab) => this._sender.zoomImage(tab, percent),
         });
     },
 
     addResetChild: function(transformation) {
         return this._addChild({
             title: chrome.i18n.getMessage('resetImageTransformation'),
-            onclick: function(info, tab) {
-                this._sender.resetTransformation(tab, transformation);
-            }.bind(this),
+            onclick: (info, tab) => this._sender.resetTransformation(tab, transformation),
         });
     },
 };

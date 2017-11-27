@@ -64,26 +64,26 @@ Options.prototype = {
     },
 
     loadAllFromLocalStorage: function() {
-        chrome.storage.local.get(function (items) {
-            Object.keys(items).map(function(key, index) {
+        chrome.storage.local.get((items) => {
+            Object.keys(items).map((key, index) => {
                 if (key.startsWith(this._prefix)) {
                     const value = items[key];
                     const inputId = this._getInputId(key);
                     const input = document.getElementById(inputId);
                     this._setValue(input, value);
                 }
-            }.bind(this));
-        }.bind(this));
+            });
+        });
     },
 
     get: function(optionIds, callback) {
-        chrome.storage.local.get(optionIds, function(items) {
+        chrome.storage.local.get(optionIds, (items) => {
             for (optionId of optionIds) {
                 if (items[optionId] === undefined) {
                     items[optionId] = this._getDefaultFor(optionId);
                 }
             }
             callback(items);
-        }.bind(this));
+        });
     },
 };

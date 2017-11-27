@@ -3,12 +3,12 @@
 const options = new Options();
 const inputs = document.querySelectorAll('input');
 
-for (element of document.querySelectorAll('[data-l10n-id]')) {
+for (const element of document.querySelectorAll('[data-l10n-id]')) {
     element.textContent = chrome.i18n.getMessage(element.dataset.l10nId);
 }
 
-inputs.forEach(options.loadDefault.bind(options));
+inputs.forEach((input) => options.loadDefault(input));
 options.loadAllFromLocalStorage();
-for (input of inputs) {
-    input.addEventListener('change', options.saveInputOnChange.bind(options));
+for (const input of inputs) {
+    input.addEventListener('change', (e) => options.saveInputOnChange(e));
 }

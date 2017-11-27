@@ -7,7 +7,7 @@ const rotateContextMenu = new ContextMenu({
     contexts: ['image', 'link'],
 }, messageSender);
 
-[90, 180, 270].forEach(rotateContextMenu.addRotateChild.bind(rotateContextMenu));
+[90, 180, 270].forEach((deg) => rotateContextMenu.addRotateChild(deg));
 rotateContextMenu.addResetChild('rotate');
 
 const zoomContextMenu = new ContextMenu({
@@ -15,7 +15,7 @@ const zoomContextMenu = new ContextMenu({
     contexts: ['image', 'link'],
 }, messageSender);
 
-[125, 150, 200, 300, 400, 500].forEach(zoomContextMenu.addZoomChild.bind(zoomContextMenu));
+[125, 150, 200, 300, 400, 500].forEach((percent) => zoomContextMenu.addZoomChild(percent));
 zoomContextMenu.addResetChild('zoom');
 
 const resetAllContextMenu = new ContextMenu({
