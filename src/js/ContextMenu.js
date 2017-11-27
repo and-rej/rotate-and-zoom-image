@@ -11,10 +11,17 @@ ContextMenu.prototype = {
     },
 
     addRotateChild: function(degrees) {
-        return this._addChild({
-            title: browser.i18n.getMessage('rotateImageBy', degrees),
-            onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
-        });
+        if (degrees > 0) {
+            return this._addChild({
+                title: browser.i18n.getMessage('rotateImageRightBy', degrees),
+                onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
+            });
+        } else {
+            return this._addChild({
+                title: browser.i18n.getMessage('rotateImageLeftBy', -degrees),
+                onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
+            });
+        }
     },
 
     addZoomChild: function(percent) {

@@ -7,7 +7,7 @@ const rotateContextMenu = new ContextMenu({
     contexts: ['image', 'link'],
 }, messageSender);
 
-[90, 180, 270].forEach((deg) => rotateContextMenu.addRotateChild(deg));
+[-90, -180, 90, 180].forEach((deg) => rotateContextMenu.addRotateChild(deg));
 rotateContextMenu.addResetChild('rotate');
 
 const zoomContextMenu = new ContextMenu({

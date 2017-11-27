@@ -23,9 +23,19 @@
         "message": "Rotate this image",
         "description": "Parent context menu entry for image rotation."
     },
-    "rotateImageBy": {
-        "message": "Rotate $degrees$°",
-        "description": "Context menu entry for rotating the image by given number of degrees.",
+    "rotateImageLeftBy": {
+        "message": "Rotate $degrees$° left",
+        "description": "Context menu entry for rotating the image by given number of degrees to the left.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "90"
+            }
+        }
+    },
+    "rotateImageRightBy": {
+        "message": "Rotate $degrees$° right",
+        "description": "Context menu entry for rotating the image by given number of degrees to the right.",
         "placeholders": {
             "degrees": {
                 "content": "$1",
