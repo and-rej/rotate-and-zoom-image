@@ -30,8 +30,16 @@ ImageContainer.prototype = {
         this._setImageTransition(transformationCallback);
         const imageTransformations = parseInt(this._image.dataset.numOfTransformations || 0);
         this._image.dataset.numOfTransformations = imageTransformations + 1;
-        this._image.style.boxShadow = '0 0 0.1em 0.1em';
-        this._image.style.zIndex = 999;
+        const highlightOptionId = 'highlight_transformed_images';
+        this._options.get([highlightOptionId]).then((items) => {
+            if (items[highlightOptionId]) {
+                this._image.style.boxShadow = '0 0 0.1em 0.1em';
+                this._image.style.zIndex = 999;
+            } else {
+                this._image.style.boxShadow = null;
+                this._image.style.zIndex = null;
+            }
+        });
     },
 
     _undoTransformation: function(transformationCallback, numberOfUndoneTransformations) {

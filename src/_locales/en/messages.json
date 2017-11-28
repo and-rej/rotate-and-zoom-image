@@ -19,6 +19,10 @@
         "message": "s",
         "description": "Units of animation duration option (seconds)."
     },
+    "highlightTransformedImages" : {
+        "message": "Highlight transformed images",
+        "description": "Label for transformed images highlighting."
+    },
     "rotateImage": {
         "message": "Rotate this image",
         "description": "Parent context menu entry for image rotation."

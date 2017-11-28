@@ -90,6 +90,7 @@ class Options {
         const defaults = {};
         defaults[`${this._prefix}transformation_animation_enabled`] = true;
         defaults[`${this._prefix}transformation_animation_duration`] = 0.5;
+        defaults[`${this._prefix}highlight_transformed_images`] = false;
         return defaults;
     }
 
