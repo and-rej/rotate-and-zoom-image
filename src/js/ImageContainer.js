@@ -28,6 +28,23 @@ ImageContainer.prototype = {
 
     _doTransformation: function(transformationCallback) {
         this._setImageTransition(transformationCallback);
+        const imageTransformations = parseInt(this._image.dataset.numOfTransformations || 0);
+        this._image.dataset.numOfTransformations = imageTransformations + 1;
+        this._image.style.boxShadow = '0 0 0.1em 0.1em';
+        this._image.style.zIndex = 999;
+    },
+
+    _undoTransformation: function(transformationCallback, numberOfUndoneTransformations) {
+        this._setImageTransition(transformationCallback);
+        let imageTransformations = parseInt(this._image.dataset.numOfTransformations || 0);
+        if (imageTransformations > 0) {
+            imageTransformations -= numberOfUndoneTransformations;
+            this._image.dataset.numOfTransformations = imageTransformations;
+        }
+        if (imageTransformations <= 0) {
+            this._image.style.boxShadow = null;
+            this._image.style.zIndex = null;
+        }
     },
 
     _afterTransformation: function(duration) {
@@ -54,14 +71,19 @@ ImageContainer.prototype = {
 
     resetTransformation: function(transformation) {
         const transformationRegExp = new RegExp(transformation + '\\((-|\\w|\\.|,|\\s)*\\)', 'gi');
-        if ((this._image.style.transform.match(transformationRegExp) || []).length > 0) {
-            this._doTransformation(() =>
-                this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim()
+        const matchedTransformations = (this._image.style.transform.match(transformationRegExp) || []).length;
+        if (matchedTransformations > 0) {
+            this._undoTransformation(
+                () => this._image.style.transform = this._image.style.transform.replace(transformationRegExp, '').trim(),
+                matchedTransformations
             );
         }
     },
 
     resetAllTransformations: function() {
-        this._doTransformation(() => this._image.style.transform = null);
+        this._undoTransformation(() => this._image.style.transform = null, 9999);
+        this._image.dataset.numOfTransformations = 0;
+        this._image.style.boxShadow = null;
+        this._image.style.zIndex = null;
     },
 };

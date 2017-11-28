@@ -4,7 +4,6 @@ function MessageListener(imageContainer) {
 
 MessageListener.prototype = {
     receive: function(request) {
-        console.log(request);
         switch (request.type) {
             case 'rotate':
                 if (request.value === null) {
