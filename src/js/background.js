@@ -1,6 +1,7 @@
 'use strict';
 
 const messageSender = new MessageSender();
+const options = new Options();
 
 {
     const rotateContextMenu = new ContextMenu({
@@ -8,8 +9,19 @@ const messageSender = new MessageSender();
         contexts: ['image', 'link'],
     }, messageSender);
 
-    [-90, -180, 90, 180].forEach((deg) => rotateContextMenu.addRotateChild(deg));
-    rotateContextMenu.addResetChild('rotate');
+    const rotationDegreesOptionId = 'rotation_degrees';
+    options.get(rotationDegreesOptionId).then((items) => {
+        items[rotationDegreesOptionId]
+            .sort((a,b) => {
+                if (a < 0 && b < 0) {
+                    return -(a-b);
+                } else {
+                    return (a-b);
+                }
+            })
+            .forEach((deg) => rotateContextMenu.addRotateChild(deg));
+        rotateContextMenu.addResetChild('rotate');
+    });
 }
 
 {
@@ -18,8 +30,13 @@ const messageSender = new MessageSender();
         contexts: ['image', 'link'],
     }, messageSender);
 
-    [25, 50, 75, 125, 150, 200, 300, 400, 500].forEach((percent) => zoomContextMenu.addZoomChild(percent));
-    zoomContextMenu.addResetChild('zoom');
+    const zoomLevelsOptionId = 'zoom_percent_levels';
+    options.get(zoomLevelsOptionId).then((items) => {
+        items[zoomLevelsOptionId]
+            .sort((a,b) => a-b)
+            .forEach((percent) => zoomContextMenu.addZoomChild(percent));
+        zoomContextMenu.addResetChild('zoom');
+    });
 }
 
 {

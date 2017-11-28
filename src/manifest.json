@@ -27,6 +27,7 @@
   "background": {
     "scripts": [
         "js/MessageSender.js",
+        "js/Options.js",
         "js/ContextMenu.js",
         "js/background.js"
     ]

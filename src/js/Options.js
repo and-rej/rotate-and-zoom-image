@@ -91,6 +91,8 @@ class Options {
         defaults[`${this._prefix}transformation_animation_enabled`] = true;
         defaults[`${this._prefix}transformation_animation_duration`] = 0.5;
         defaults[`${this._prefix}highlight_transformed_images`] = false;
+        defaults[`${this._prefix}rotation_degrees`] = [-90, -180, 90, 180];
+        defaults[`${this._prefix}zoom_percent_levels`] = [25, 50, 75, 125, 150, 200, 300, 400, 500];
         return defaults;
     }
 
