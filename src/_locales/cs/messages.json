@@ -29,7 +29,7 @@
     },
     "zoomImageTo": {
         "message": "Zvětšit na $percent$%",
-        "description": "Context menu entry for zooming the image to given scale.",
+        "description": "Context menu entry for zooming the image to given scale more than 100%.",
         "placeholders": {
             "percent": {
                 "content": "$1",
@@ -96,5 +96,9 @@
     "flipImageVertically": {
         "message": "Převrátit vertikálně (hlavou vzhůru)",
         "description": "Context menu for flipping the image vertically (upside down)."
+    },
+    "highlightTransformedImages": {
+        "message": "Zvýraznit transformované obrázky",
+        "description": "Label for transformed images highlighting."
     }
 }
