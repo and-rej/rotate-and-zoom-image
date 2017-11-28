@@ -1,14 +1,15 @@
 'use strict';
 
 const options = new Options();
-const inputs = document.querySelectorAll('input');
+
+// Load options values from storage.
+options.loadAllFromLocalStorage().then(() => {
+    // Watch for input changes and store the new values.
+    document.querySelectorAll('[data-option-id]').forEach((input) =>
+        input.addEventListener('change', (e) => options.updateOptionFromInput(e.target))
+    );
+});
 
 for (const element of document.querySelectorAll('[data-l10n-id]')) {
     element.textContent = browser.i18n.getMessage(element.dataset.l10nId);
-}
-
-inputs.forEach((input) => options.loadDefault(input));
-options.loadAllFromLocalStorage();
-for (const input of inputs) {
-    input.addEventListener('change', (e) => options.saveInputOnChange(e));
 }

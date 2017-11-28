@@ -9,8 +9,8 @@ ImageContainer.prototype = {
     },
 
     _setImageTransition: function(transformationCallback) {
-        const enabledOptionId = 'options.transformation_animation_enabled';
-        const durationOptionId = 'options.transformation_animation_duration';
+        const enabledOptionId = 'transformation_animation_enabled';
+        const durationOptionId = 'transformation_animation_duration';
         this._options.get([enabledOptionId, durationOptionId]).then((items) => {
             if (items[enabledOptionId]) {
                 this._image.style.transition = `all ${items[durationOptionId]}s`;
