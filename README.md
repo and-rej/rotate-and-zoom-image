@@ -10,9 +10,7 @@ As I personally do not use this too often, please report any issues or feature r
 
 If you have an idea for an improvement or new feature for the add-on, please file it in a [form of an issue](https://github.com/MikkCZ/rotate-and-zoom-image/issues). Please choose a well describing subject and describe in detail in the text field, what the feature should look like and in which cases you would use it.
 
-## How to get involved
-
-The easiest way to get involved is to use the add-on and report any issues you find. If you are a programmer or you know, how to code in JavaScript, feel free to create a pull request with your improvements. If you do not know, how to code, don't worry. You can use [this online tool to localize](https://poeditor.com/join/project/OCrDGbtroC) Rotate and Zoom Image into your language.
+## [How to get involved](CONTRIBUTING.md)
 
 ## Something does not work?
 
