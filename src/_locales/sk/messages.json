@@ -1,0 +1,104 @@
+{
+    "extensionName": {
+        "message": "Rotate and Zoom Image",
+        "description": "Name of the extension. Personally I suggest to keep it in English for easier search on AMO."
+    },
+    "extensionDescription": {
+        "message": "Umožňuje otáčať a zväčšovať obrázky z ich kontextovej ponuky priamo na webových stránkach.",
+        "description": "Description of the extension."
+    },
+    "enableTransformationAnimation": {
+        "message": "Povoliť animácie transformácii obrázkov",
+        "description": "Checkbox in options to enable animations."
+    },
+    "transformationAnimationDurationLabel": {
+        "message": "Doba trvania animácie",
+        "description": "Label for animation duration option."
+    },
+    "transformationAnimationDurationUnitLabelSeconds": {
+        "message": "s",
+        "description": "Units of animation duration option (seconds)."
+    },
+    "rotateImage": {
+        "message": "Otočiť tento obrázok",
+        "description": "Parent context menu entry for image rotation."
+    },
+    "zoomImage": {
+        "message": "Zväčšiť tento obrázok",
+        "description": "Parent context menu entry for image zooming."
+    },
+    "zoomImageTo": {
+        "message": "Zväčšiť na $percent$%",
+        "description": "Context menu entry for zooming the image to given scale more than 100%.",
+        "placeholders": {
+            "percent": {
+                "content": "$1",
+                "example": "125"
+            }
+        }
+    },
+    "resetImageTransformation": {
+        "message": "Obnoviť",
+        "description": "Context menu entry to reset either the image rotation or zoom."
+    },
+    "resetAllImageTransformations": {
+        "message": "Obnoviť všetko",
+        "description": "Context menu entry to reset all image transformations."
+    },
+    "downscaleImageTo": {
+        "message": "Zmenšiť na $percent$%",
+        "description": "Context menu entry for un-zooming the image to given scale less than 100%.",
+        "placeholders": {
+            "percent": {
+                "content": "$1",
+                "example": "50"
+            }
+        }
+    },
+    "rotateImageLeftBy": {
+        "message": "Otočiť o $degrees$° doľava",
+        "description": "Context menu entry for rotating the image by given number of degrees to the left.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "90"
+            }
+        }
+    },
+    "rotateImageRightBy": {
+        "message": "Otočiť o $degrees$° doprava",
+        "description": "Context menu entry for rotating the image by given number of degrees to the right.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "90"
+            }
+        }
+    },
+    "openOptions": {
+        "message": "Otvoriť možnosti $addon$",
+        "description": "Context menu entry to open Rotate and Image Zoom options.",
+        "placeholders": {
+            "addon": {
+                "content": "$1",
+                "example": "Rotate and Zoom Image"
+            }
+        }
+    },
+    "flipImage": {
+        "message": "Prevrátiť tento obrázok",
+        "description": "Parent context menu entry for image flipping."
+    },
+    "flipImageHorizontally": {
+        "message": "Prevrátiť vodorovne (zľava doprava)",
+        "description": "Context menu for flipping the image horizontally (left to right)."
+    },
+    "flipImageVertically": {
+        "message": "Prevrátiť zvislo (hore nohami)",
+        "description": "Context menu for flipping the image vertically (upside down)."
+    },
+    "highlightTransformedImages": {
+        "message": "Zvýrazniť transformované obrázky",
+        "description": "Label for transformed images highlighting."
+    }
+}
