@@ -52,7 +52,7 @@ const options = new Options();
 new ContextMenu({
     title: browser.i18n.getMessage('resetAllImageTransformations'),
     contexts: ['image', 'link'],
-    onclick: function(info, tab) {
+    onclick: (info, tab) => {
         messageSender.resetAllTransformations(tab);
     },
 });

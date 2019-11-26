@@ -3,7 +3,7 @@
 const options = new Options();
 const imageContainer = new ImageContainer(options);
 
-document.addEventListener('contextmenu', function(e) {
+document.addEventListener('contextmenu', (e) => {
     if (e.target.tagName.toLowerCase() === 'img') {
         imageContainer.setImage(e.target);
     } else {

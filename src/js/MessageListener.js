@@ -1,9 +1,10 @@
-function MessageListener(imageContainer) {
-    this._container = imageContainer;
-}
+class MessageListener {
 
-MessageListener.prototype = {
-    receive: function(request) {
+    constructor(imageContainer) {
+        this._container = imageContainer;
+    }
+
+    receive(request) {
         switch (request.type) {
             case 'rotate':
                 if (request.value === null) {
@@ -30,5 +31,5 @@ MessageListener.prototype = {
                 this._container.resetAllTransformations();
                 break;
         }
-    },
-};
+    }
+}

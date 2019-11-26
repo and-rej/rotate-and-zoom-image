@@ -1,14 +1,15 @@
-function ImageContainer(options) {
-    this._image = null;
-    this._options = options;
-}
+class ImageContainer {
 
-ImageContainer.prototype = {
-    setImage: function(clickedImage) {
+    constructor(options) {
+        this._image = null;
+        this._options = options;
+    }
+
+    setImage(clickedImage) {
         this._image = clickedImage;
-    },
+    }
 
-    _setImageTransition: function(transformationCallback) {
+    _setImageTransition(transformationCallback) {
         const enabledOptionId = 'transformation_animation_enabled';
         const durationOptionId = 'transformation_animation_duration';
         this._options.get([enabledOptionId, durationOptionId]).then((items) => {
@@ -20,13 +21,13 @@ ImageContainer.prototype = {
                 this._afterTransformation(items[durationOptionId]);
             }
         });
-    },
+    }
 
-    _resetImageTransition: function() {
+    _resetImageTransition() {
         this._image.style.transition = null;
-    },
+    }
 
-    _doTransformation: function(transformationCallback) {
+    _doTransformation(transformationCallback) {
         this._setImageTransition(transformationCallback);
         const imageTransformations = parseInt(this._image.dataset.numOfTransformations || 0);
         this._image.dataset.numOfTransformations = imageTransformations + 1;
@@ -40,9 +41,9 @@ ImageContainer.prototype = {
                 this._image.style.zIndex = null;
             }
         });
-    },
+    }
 
-    _undoTransformation: function(transformationCallback, numberOfUndoneTransformations) {
+    _undoTransformation(transformationCallback, numberOfUndoneTransformations) {
         this._setImageTransition(transformationCallback);
         let imageTransformations = parseInt(this._image.dataset.numOfTransformations || 0);
         if (imageTransformations > 0) {
@@ -53,31 +54,31 @@ ImageContainer.prototype = {
             this._image.style.boxShadow = null;
             this._image.style.zIndex = null;
         }
-    },
+    }
 
-    _afterTransformation: function(duration) {
+    _afterTransformation(duration) {
         setTimeout(() => this._resetImageTransition(), duration * 1000);
-    },
+    }
 
-    rotateImage: function(degrees) {
+    rotateImage(degrees) {
         this._doTransformation(() =>
             this._image.style.transform = this._image.style.transform + ` rotate(${degrees}deg)`
         );
-    },
+    }
 
-    zoomImage: function(percent) {
+    zoomImage(percent) {
         this._doTransformation(() =>
             this._image.style.transform = this._image.style.transform + ` scale(${percent/100})`
         );
-    },
+    }
 
-    flipImage: function(sx, sy) {
+    flipImage(sx, sy) {
         this._doTransformation(() =>
             this._image.style.transform = this._image.style.transform + ` scale(${sx}, ${sy})`
         );
-    },
+    }
 
-    resetTransformation: function(transformation) {
+    resetTransformation(transformation) {
         const transformationRegExp = new RegExp(transformation + '\\((-|\\w|\\.|,|\\s)*\\)', 'gi');
         const matchedTransformations = (this._image.style.transform.match(transformationRegExp) || []).length;
         if (matchedTransformations > 0) {
@@ -86,12 +87,12 @@ ImageContainer.prototype = {
                 matchedTransformations
             );
         }
-    },
+    }
 
-    resetAllTransformations: function() {
+    resetAllTransformations() {
         this._undoTransformation(() => this._image.style.transform = null, 9999);
         this._image.dataset.numOfTransformations = 0;
         this._image.style.boxShadow = null;
         this._image.style.zIndex = null;
-    },
-};
+    }
+}

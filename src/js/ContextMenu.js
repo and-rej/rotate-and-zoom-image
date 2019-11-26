@@ -1,16 +1,17 @@
-function ContextMenu(createProperties, messageSender) {
-    this._id = browser.contextMenus.create(createProperties);
-    this._sender = messageSender;
-}
+class ContextMenu {
 
-ContextMenu.prototype = {
-    _addChild: function(createProperties) {
+    constructor(createProperties, messageSender) {
+        this._id = browser.contextMenus.create(createProperties);
+        this._sender = messageSender;
+    }
+
+    _addChild(createProperties) {
         const childProperties = createProperties;
         childProperties.parentId = this._id;
         return new ContextMenu(childProperties);
-    },
+    }
 
-    addRotateChild: function(degrees) {
+    addRotateChild(degrees) {
         if (degrees > 0) {
             return this._addChild({
                 title: browser.i18n.getMessage('rotateImageRightBy', degrees),
@@ -22,9 +23,9 @@ ContextMenu.prototype = {
                 onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
             });
         }
-    },
+    }
 
-    addZoomChild: function(percent) {
+    addZoomChild(percent) {
         if (percent > 100) {
             return this._addChild({
                 title: browser.i18n.getMessage('zoomImageTo', percent),
@@ -36,9 +37,9 @@ ContextMenu.prototype = {
                 onclick: (info, tab) => this._sender.zoomImage(tab, percent),
             });
         }
-    },
+    }
 
-    addFlipChild: function(how) {
+    addFlipChild(how) {
         switch (how) {
             case 'horizontally':
                 return this._addChild({
@@ -53,12 +54,12 @@ ContextMenu.prototype = {
                 });
                 break;
         }
-    },
+    }
 
-    addResetChild: function(transformation) {
+    addResetChild(transformation) {
         return this._addChild({
             title: browser.i18n.getMessage('resetImageTransformation'),
             onclick: (info, tab) => this._sender.resetTransformation(tab, transformation),
         });
-    },
-};
+    }
+}

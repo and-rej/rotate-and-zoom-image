@@ -1,4 +1,5 @@
 class Options {
+
     constructor() {
         this._prefix = 'options.';
         this._prefixRegExp = new RegExp('^' + this._prefix);
