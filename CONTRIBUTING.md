@@ -6,7 +6,7 @@ The easiest way to get involved is to use the add-on and any issues you find [re
 
 ## Localization
 
-A more active, but also very easy way is to help translating the add-on to your language. If your language is already provided, but incomplete or inaccurate, feel free to update it using [this online tool](https://poeditor.com/join/project/OCrDGbtroC). If you want to add a new language, please request it via the online tool or simply file an issue in this repository.
+A more active, but also very easy way is to help translating the add-on to your language. If your language is already provided, but incomplete or inaccurate, feel free to update or add it using [in `src/_locales`](https://github.com/MikkCZ/rotate-and-zoom-image/tree/master/src/_locales).
 
 ## Coding
 
