@@ -2,13 +2,13 @@
   "applications": {
     "gecko": {
       "id": "rotate-and-zoom-image@mikk.cz",
-      "strict_min_version": "52.0"
+      "strict_min_version": "68.0"
     }
   },
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.4",
+  "version": "1.5",
   "author": "Michal Stanke",
   "icons": {
     "16": "img/ic_burst_mode_black_48px.svg",
@@ -45,4 +45,3 @@
     }
   ]
 }
-
