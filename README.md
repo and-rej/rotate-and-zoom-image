@@ -4,7 +4,7 @@
 
 Rotate and Zoom Image is a basic replacement for [Image Zoom](https://addons.mozilla.org/firefox/addon/image-zoom/) or [Rotate Image](https://addons.mozilla.org/firefox/addon/rotate-image/), and already compatible with future versions of Firefox. It allows to rotate and zoom images directly on any website from the image context menu. Just right-click the image and see options at the bottom of the context menu. At this moment it may lack some features, like custom zoom ratios or rotation angles, but it aims to stay lightweight and predictable.
 
-As I personally do not use this too often, please report any issues or feature request to the support page. If you like this add-on, please consider a [donation](https://addons.mozilla.org/firefox/addon/rotate-and-zoom-image/developers) to encourage me in further development. Or you can [get involved](CONTRIBUTING.md) directly, either by code or by providing a translation to you language.
+As I personally do not use this too often, please report any issues or feature request to the support page.
 
 ## Feature requests
 
