@@ -14,6 +14,7 @@ document.addEventListener('contextmenu', (e) => {
 		if (img) {
 			imageContainer.setImage(img);
 		} else {
+			// Consider selecting inside parent as well. Some sites have social overlays that live alongside images and block context menu. E.g. Pinterest overlay here: https://www.healthline.com/ 
 			imageContainer.setImage(null);
 		}
 	}
