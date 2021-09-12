@@ -47,19 +47,16 @@ class ImageContainer {
 
 		const actualX = this._image.getBoundingClientRect().x;
 		const actualY = this._image.getBoundingClientRect().y;
-		console.debug(`Actual X: ${actualX} Actual Y: ${actualY}`);
 		if (actualX < 0 || actualY < 0) {
 
 			// Check if top left is out of view and by how many pixels.
 			const xToMove = actualX < 0 ? actualX * -1 : 0;
 			const yToMove = actualY < 0 ? actualY * -1 : 0;
-			console.debug(`X To Move: ${xToMove} Y To Move: ${yToMove}`);
 
 			// Consider CSS transform scale to make sure image is moved correct distance.
 			// Cieling helps it move enough and not trigger another move.
 			const xToMoveScaled = Math.ceil(xToMove / this._scale);
 			const yToMoveScaled = Math.ceil(yToMove / this._scale);
-			console.debug(`X To Move Scaled: ${xToMoveScaled} Y To Move Scaled: ${yToMoveScaled}`);
 
 			// Consider CSS transform rotation to ensure image is moved in correct direction.
 			switch (this._orientation) {
@@ -160,7 +157,6 @@ class ImageContainer {
 			// Update scale state.
 			const deltaScale = percent / 100;
 			this._scale *= deltaScale;
-			console.debug(`Scale ${this._scale}`);
 		});
 	}
 
