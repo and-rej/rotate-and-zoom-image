@@ -8,7 +8,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.6",
+  "version": "2.0",
   "author": "Andrej Zecevic",
   "icons": {
     "16": "img/ic_burst_mode_black_48px.svg",
