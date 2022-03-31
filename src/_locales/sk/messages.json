@@ -55,6 +55,16 @@
             }
         }
     },
+   "rotateImageBy": {
+        "message": "Otočiť o $degrees$°",
+        "description": "Context menu entry for rotating the image by given number of degrees with no direction specified.",
+        "placeholders": {
+            "degrees": {
+                "content": "$1",
+                "example": "180"
+            }
+        }
+    },
     "rotateImageLeftBy": {
         "message": "Otočiť o $degrees$° doľava",
         "description": "Context menu entry for rotating the image by given number of degrees to the left.",

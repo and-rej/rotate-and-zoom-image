@@ -12,7 +12,12 @@ class ContextMenu {
     }
 
     addRotateChild(degrees) {
-        if (degrees > 0) {
+        if (degrees === 180) {
+            return this._addChild({
+                title: browser.i18n.getMessage('rotateImageBy', degrees),
+                onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
+            });
+        } else if (degrees > 0) {
             return this._addChild({
                 title: browser.i18n.getMessage('rotateImageRightBy', degrees),
                 onclick: (info, tab) => this._sender.rotateImage(tab, degrees),
